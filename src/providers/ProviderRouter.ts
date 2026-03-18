@@ -71,7 +71,7 @@ export class ProviderRouter {
   private score(p: SearchProvider): number {
     const stats = p.getStats();
     const latencyFactor = 1 / Math.max(stats.avgLatencyMs || 1, 1);
-    const quotaFactor = stats.quotaRemaining === null ? 1.0 : Math.max(stats.quotaRemaining, 0) / 100;
+    const quotaFactor = stats.quotaRemaining === null ? 1.0 : Math.min(Math.max(stats.quotaRemaining, 0) / 100, 1.0);
     return latencyFactor * quotaFactor * (1 / (p.priority + 1));
   }
 }
