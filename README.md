@@ -126,4 +126,4 @@ Each provider has its own `CircuitBreaker` — 3 failures within 60 seconds open
 
 ## Deployment
 
-Pushed to `docker.toastedbytes.com/web-search-service` via GitHub Actions. ArgoCD Image Updater handles digest bumps. K8s manifests live in `homelab-gitops` (`web-search-service/base/`). Deployed in dedicated `web-search` namespace alongside SearXNG.
+Pushed to `docker.toastedbytes.com/web-search-service` via GitHub Actions. ArgoCD Image Updater handles digest pinning. K8s manifests live in `infrastructure/kubernetes/control-plane`. Deployed in `web-search` namespace alongside SearXNG.
